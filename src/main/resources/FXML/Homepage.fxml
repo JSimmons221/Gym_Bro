@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="background" prefHeight="667.0" prefWidth="375.0" style="-fx-background-color: #463d49;" stylesheets="@../CSS/Home.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+   <children>
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="647.0" prefWidth="355.0" style="-fx-background-color: #463d49;">
+         <children>
+            <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#d2042d" height="647.0" stroke="BLACK" strokeType="INSIDE" width="355.0" />
+            <Text layoutX="86.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gym Bro">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="179.0" fitWidth="320.0" layoutX="18.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Barcode.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="12.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan your barcode at the front desk">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TreeTableView fx:id="reservationsTable" layoutX="14.0" layoutY="338.0" prefHeight="262.0" prefWidth="326.0">
+              <columns>
+                <TreeTableColumn fx:id="equipmentReservationsCol" prefWidth="176.0" text="Equipment" />
+                <TreeTableColumn fx:id="dateCol" prefWidth="75.0" text="Date" />
+                  <TreeTableColumn fx:id="timeCol" prefWidth="75.0" text="Time" />
+              </columns>
+            </TreeTableView>
+            <Button fx:id="homepageButton" layoutX="23.0" layoutY="607.0" mnemonicParsing="false" onAction="#switchToReservations" prefWidth="117.0" text="Reservations" />
+            <Button layoutX="145.0" layoutY="607.0" mnemonicParsing="false" onAction="#switchToMap" prefWidth="66.0" text="Map" />
+            <Button layoutX="216.0" layoutY="607.0" mnemonicParsing="false" onAction="#switchToWorkouts" prefWidth="117.0" text="Workouts" />
+            <ImageView fitHeight="87.0" fitWidth="54.0" layoutX="298.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/settings.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="53.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upcoming Reservations">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
