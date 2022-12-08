@@ -81,4 +81,14 @@ public class Context {
             }
         }
     }
+
+    public boolean checkReservation(String date, String time){
+        Reservation res = new Reservation("", date, time, -1);
+        for (Reservation r: Reservations){
+            if (r.equals(res)){
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -41,10 +41,12 @@ public class Reservation implements Comparable<Reservation>{
         if (date.compareTo(o.date) > 0) return 1;
         else if (date.compareTo(o.date) < 0) return -1;
         else{
-            if (time.compareTo(o.time) > 0) return 1;
-            else if(time.compareTo(o.time) < 0) return 1;
-            else return 0;
+            return time.compareTo(o.time);
         }
+    }
+
+    public boolean equals(Reservation o){
+        return date.equals(o.date) && time.equals(o.time);
     }
 }
 
@@ -73,6 +75,10 @@ class Date implements Comparable<Date>{
         else{
             return Integer.compare(day, o.day);
         }
+    }
+
+    public boolean equals(Date o){
+        return month == o.month && day == o.day;
     }
 }
 class Time implements Comparable<Time>{
@@ -135,5 +141,10 @@ class Time implements Comparable<Time>{
             return Integer.compare(minute, o.minute);
         }
     }
+
+    public boolean equals(Time o){
+        return hour == o.hour && minute == o.minute;
+    }
+
 }
 

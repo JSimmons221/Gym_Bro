@@ -13,6 +13,7 @@ import javafx.event.Event;
 public class ReservationFormController extends Controller{
 
     @FXML Text equipmentText;
+    @FXML Text warningText;
     @FXML ComboBox<String> timeCBox;
     @FXML ComboBox<String> dateCBox;
 
@@ -56,9 +57,15 @@ public class ReservationFormController extends Controller{
     @FXML
     public void submit(Event event){
         if (timeCBox.getValue() != null && dateCBox.getValue() != null){
-            Context.getInstance().addReservation(Context.getInstance().getEquip(), dateCBox.getValue(), timeCBox.getValue());
+            if (Context.getInstance().checkReservation(dateCBox.getValue(), timeCBox.getValue())) {
+                Context.getInstance().addReservation(Context.getInstance().getEquip(), dateCBox.getValue(), timeCBox.getValue());
+                switchToReservations(event);
+            } else {
+                warningText.setText("You already have a reservation at this time");
+            }
+        } else {
+            warningText.setText("Time or Date not selected");
         }
-        switchToReservations(event);
     }
 
     public void helpButton(){
